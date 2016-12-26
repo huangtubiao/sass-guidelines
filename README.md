@@ -164,7 +164,9 @@ c)当一个元素的样式在另一个容器中有其他指定的样式时，可
 
 ## 命名约定
 
-我个人坚持的风格：小写连字符分隔，有意义的命名。
+我个人坚持的风格：
+- 文件：小写连字符分隔，有意义的命名；
+- 文件夹：小写，下划线分隔。
 
 ## 组件
 
@@ -221,9 +223,69 @@ $button-color: $secondary-color;
 
 ## 结构
 
-
+个人喜欢的结构：
+``` python
+sass/
+|
+|– abstracts/
+|   |– _variables.scss    # Sass Variables
+|   |– _functions.scss    # Sass Functions
+|   |– _mixins.scss       # Sass Mixins
+|   |– _placeholders.scss # Sass Placeholders
+|
+|– base/
+|   |– _reset.scss        # Reset/normalize
+|   |– _typography.scss   # Typography rules
+|   …                     # Etc.
+|
+|– components/
+|   |– _buttons.scss      # Buttons
+|   |– _carousel.scss     # Carousel
+|   |– _cover.scss        # Cover
+|   |– _dropdown.scss     # Dropdown
+|   …                     # Etc.
+|
+|– layout/
+|   |– _navigation.scss   # Navigation
+|   |– _grid.scss         # Grid system
+|   |– _header.scss       # Header
+|   |– _footer.scss       # Footer
+|   |– _sidebar.scss      # Sidebar
+|   |– _forms.scss        # Forms
+|   …                     # Etc.
+|
+|– pages/
+|   |– home.scss          # Home specific styles
+|   |– contact.scss       # Contact specific styles
+|   …                     # Etc.
+|
+|– vendors/
+|   |– _bootstrap.scss    # Bootstrap
+|   |– _jquery-ui.scss    # jQuery UI
+|   …                     # Etc.
+|
+|- _var.scss
+`– main.scss              # Main Sass file
+``` 
 
 ## 注释
+
+在Sass写注释主要有两种注释：
+1、单行注释: 
+``` python
+// 这是注释
+``` 
+使用这种注释 Sass 是不会被编译出来的。
+
+2、C 风格注释 :
+``` python
+/**
+ * 这是注释
+ */
+```
+使用这种注释 Sass 会被编译出来的。
+
+那么怎么去注释呢？个人觉得，没有硬性要求，但要写有意义的注释，建议去找找三个月之前的代码看看，心里就知道怎么去写注释了。
 
 # Ref
 
