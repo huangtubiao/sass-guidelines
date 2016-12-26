@@ -8,7 +8,7 @@
 
 - *生成冗余的代码*：使用 **混合宏** 的时候，编译出来的 CSS 清晰告诉了大家，他不会自动合并相同的样式代码，如果在样式文件中调用同一个混合宏，会产生多个对应的样式代码，造成代码的冗余，这也是 CSSer 无法忍受的一件事情。对于 **继承**，如果是基类并不存在于HTML结构时，不管调用与不调用，在编译出来的 CSS 中都将产生基类对应的样式代码。
 
-- *增加一定的学习成本和团队维护成本*：新的技术的引入会增加团队的学习成本，但如果没有规范好必然会增加代码上的混乱和后期维护上的困难。
+- *增加一定的学习成本和团队维护成本以及需要制定规范*：引入预处理器之后，如果没有规范好必然会增加代码上的混乱和后期维护上的困难，规范的制定要多考虑很多东西了，很考验能力。如果规范没制定好，团队合作时如何保证最大化的复用性、避免冲突、模块粒度拆解与文件目录结构设计都会是挑战。加上历史遗留问题，情况就更复杂了。
 
 ## 书写格式
 
@@ -221,9 +221,8 @@ $button-color: $secondary-color;
 }
 ```
 
-## 结构
+## 文件组织
 
-个人喜欢的结构：
 ``` python
 sass/
 |
@@ -231,27 +230,19 @@ sass/
 |   |– _variables.scss    # Sass Variables
 |   |– _functions.scss    # Sass Functions
 |   |– _mixins.scss       # Sass Mixins
-|   |– _placeholders.scss # Sass Placeholders
 |
 |– base/
 |   |– _reset.scss        # Reset/normalize
-|   |– _typography.scss   # Typography rules
 |   …                     # Etc.
 |
 |– components/
 |   |– _buttons.scss      # Buttons
-|   |– _carousel.scss     # Carousel
-|   |– _cover.scss        # Cover
-|   |– _dropdown.scss     # Dropdown
 |   …                     # Etc.
 |
 |– layout/
 |   |– _navigation.scss   # Navigation
-|   |– _grid.scss         # Grid system
 |   |– _header.scss       # Header
 |   |– _footer.scss       # Footer
-|   |– _sidebar.scss      # Sidebar
-|   |– _forms.scss        # Forms
 |   …                     # Etc.
 |
 |– pages/
@@ -264,7 +255,6 @@ sass/
 |   |– _jquery-ui.scss    # jQuery UI
 |   …                     # Etc.
 |
-|- _var.scss
 `– main.scss              # Main Sass file
 ``` 
 
